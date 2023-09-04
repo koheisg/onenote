@@ -1,4 +1,7 @@
-<%= form_with(model: @note, url: note_path, class: 'pt-3 h-full prose lg:prose-xl mx-auto') do |form| %>
-  <%= form.rich_text_area :content, class: 'h-5/6' %>
-  <%= form.submit %>
+<%= form_with(model: @note,
+              url: note_path,
+              remote: true,
+              class: 'pt-3 h-full prose lg:prose-xl mx-auto',
+              data: { controller: 'autosave', autosave_delay_value: '1000' }) do |form| %>
+  <%= form.rich_text_area :content, class: 'min-h-full', data: { action: "trix-change->autosave#save" } %>
 <% end %>

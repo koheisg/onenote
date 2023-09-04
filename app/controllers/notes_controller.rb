@@ -14,11 +14,7 @@ class NotesController < ApplicationController
 
   def update
     @note = current_user.note
-    if @note.update(note_params)
-      redirect_to note_path
-    else
-      render :show
-    end
+    @note.update(note_params)
   end
 
   private
