@@ -3,5 +3,5 @@
               remote: true,
               class: 'pt-3 h-full prose lg:prose-xl mx-auto',
               data: { controller: 'autosave', autosave_delay_value: '1000' }) do |form| %>
-  <%= form.rich_text_area :content, class: 'min-h-full', data: { action: "trix-change->autosave#save" } %>
+  <%= form.rich_text_area :content, class: 'min-h-full', data: { action: "keydown.enter->autosave#save" } %>
 <% end %>
